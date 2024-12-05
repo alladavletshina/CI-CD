@@ -30,3 +30,16 @@ jobs:
       # Выполнение тестов
       - name: Test with Maven
         run: mvn test
+
+      # Деплой на удаленный хост через SSH
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 192.168.133.129
+          username: user
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /path/to/project/
+            git pull
+            mvn install
+            systemctl restart my-service
