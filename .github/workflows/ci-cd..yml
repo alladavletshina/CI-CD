@@ -1,0 +1,45 @@
+name: CI/CD Pipeline for Maven Project
+
+on:
+  # Запускаем пайплайн при каждом пуше в ветки main или master
+  push:
+    branches: [ main, master ]
+  # Или при создании pull request в ветки main или master
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Установка Java и Maven
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      # Сборка проекта с помощью Maven
+      - name: Build with Maven
+        run: mvn clean package
+
+      # Выполнение тестов
+      - name: Test with Maven
+        run: mvn test
+
+      # Деплой на удаленный хост через SSH
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /path/to/project/
+            git pull
+            mvn install
+            systemctl restart my-service
