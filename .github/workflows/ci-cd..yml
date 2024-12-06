@@ -37,7 +37,7 @@ jobs:
         with:
           host: 89.104.69.57
           username: root
-          password: 8JD7RDZLZcoyvBfC
+          password: ${{ secrets.DEPLOY_PASSWORD }}
           script: |
             cd /root/snap/user/myproject
             if [ ! -d "CI-CD" ]; then
