@@ -42,4 +42,3 @@ jobs:
             cd /root/snap/user/myproject
             git pull origin main
             ./deploy.sh
-            mvn install
