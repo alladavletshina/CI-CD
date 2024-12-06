@@ -34,14 +34,13 @@ jobs:
       # Деплой на удаленный хост через SSH
       - name: Deploy to server
         uses: appleboy/ssh-action@master
-        if: success()
         with:
           host: 89.104.69.57
           username: root
           password: 8JD7RDZLZcoyvBfC
           script: |
             cd /root/snap/user/myproject
-            ./entrypoint.sh
-            systemctl restart my-service
+            git pull origin main
+            ./deploy.sh
             mvn install
             systemctl restart my-service
