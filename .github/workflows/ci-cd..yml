@@ -35,11 +35,11 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: 192.168.133.129
-          username: user
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: 89.104.69.57
+          username: root
+          password: 8JD7RDZLZcoyvBfC
           script: |
-            cd /path/to/project/
-            git pull
+            cd /root/snap/user/myproject
+            ./entrypoint.sh
             mvn install
             systemctl restart my-service
