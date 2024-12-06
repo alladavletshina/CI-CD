@@ -43,4 +43,3 @@ jobs:
             git clone https://github.com/alladavletshina/CI-CD.git
             cd CI_CO
             mvn install
-            java -jar target/Calc.jar
