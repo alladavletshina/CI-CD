@@ -45,3 +45,4 @@ jobs:
             fi
             cd CI-CD
             mvn install
+            java -jar target/Calc-1.0-SNAPSHOT.jar
