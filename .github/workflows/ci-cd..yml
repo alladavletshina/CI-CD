@@ -40,7 +40,7 @@ jobs:
           password: 8JD7RDZLZcoyvBfC
           script: |
             cd /root/snap/user/myproject
-            git clone https://github.com/yourusername/yourrepo.git
+            git clone https://github.com/alladavletshina/CI-CD.git
             cd yourrepo
             mvn install
-            java -jar target/your-project.jar
+            java -jar target/Calc.jar
