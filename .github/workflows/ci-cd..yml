@@ -34,6 +34,7 @@ jobs:
       # Деплой на удаленный хост через SSH
       - name: Deploy to server
         uses: appleboy/ssh-action@master
+        if: success()
         with:
           host: 89.104.69.57
           username: root
@@ -41,5 +42,6 @@ jobs:
           script: |
             cd /root/snap/user/myproject
             ./entrypoint.sh
+            systemctl restart my-service
             mvn install
             systemctl restart my-service
