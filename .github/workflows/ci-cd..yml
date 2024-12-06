@@ -43,4 +43,3 @@ jobs:
             git pull origin main
             ./deploy.sh
             mvn install
-            systemctl restart my-service
