@@ -40,6 +40,8 @@ jobs:
           password: 8JD7RDZLZcoyvBfC
           script: |
             cd /root/snap/user/myproject
-            git clone https://github.com/alladavletshina/CI-CD.git
-            cd CI_CO
+            if [ ! -d "CI-CD" ]; then
+              git clone https://github.com/alladavletshina/CI-CD.git
+            fi
+            cd CI-CD
             mvn install
