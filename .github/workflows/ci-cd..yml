@@ -40,5 +40,7 @@ jobs:
           password: 8JD7RDZLZcoyvBfC
           script: |
             cd /root/snap/user/myproject
-            git pull origin main
-            ./deploy.sh
+            git clone https://github.com/yourusername/yourrepo.git
+            cd yourrepo
+            mvn install
+            java -jar target/your-project.jar
