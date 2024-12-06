@@ -41,6 +41,6 @@ jobs:
           script: |
             cd /root/snap/user/myproject
             git clone https://github.com/alladavletshina/CI-CD.git
-            cd yourrepo
+            cd CI_CO
             mvn install
             java -jar target/Calc.jar
