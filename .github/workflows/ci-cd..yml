@@ -37,7 +37,7 @@ jobs:
 
       # Деплой на удаленный хост через SSH
       - name: Deploy to server
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.4
         with:
           host: 89.104.69.57
           username: root
